@@ -40,6 +40,8 @@ Please feel free to explore the project, and if you have any questions or sugges
 **Back End Capabilities**:
 
 - CRUD (Create, Read, Update, Delete) operations with MongoDB, making this a dynamic and data-driven application.
+ ( Product data originates from http://localhost:3000/api/products )
+  **Please note that the server should be launched on port 3000.**
 
 ## Usage
 
