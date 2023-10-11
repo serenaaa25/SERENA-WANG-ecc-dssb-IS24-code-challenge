@@ -13,16 +13,16 @@ import { useDispatch } from "react-redux";
 import useStyles from "./styles";
 import { getProducts } from "./actions/products.js";
 import Pagination from "./components/Pagination/Pagination.js";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
+import Home from "./components/Home/Home.js";
 
 const App = () => {
   const classes = useStyles();
-  const [currentId, setCurrentId] = useState(null);
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [currentId, dispatch]);
 
   return (
     <Router>
@@ -32,26 +32,12 @@ const App = () => {
             ECC Product Manager
           </Typography>
         </AppBar>
-        <Grow in>
-          <Container>
-            <Grid
-              container
-              justifyContent="space-between"
-              alignItems="stretch"
-              spacing={4}
-            >
-              <Grid item xs={12} sm={7}>
-                <Products setCurrentId={setCurrentId} />
-              </Grid>
-              <Grid item xs={12} sm={4}>
-                <Form currentId={currentId} setCurrentId={setCurrentId} />
-                <Paper elevation={6}>
-                  <Pagination />
-                </Paper>
-              </Grid>
-            </Grid>
-          </Container>
-        </Grow>
+        <Switch>
+          <Route path="/" exact component={() => <Redirect to="/products" />} />
+          <Route path="/products" exact component={Home} />
+          <Route path="/products/search" exact component={Home} />
+        </Switch>
+        {/* <Home /> */}
       </Container>
     </Router>
   );
