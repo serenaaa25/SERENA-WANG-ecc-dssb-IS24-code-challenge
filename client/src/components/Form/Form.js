@@ -16,6 +16,7 @@ const Form = () => {
     productName: "",
     productOwnerName: "",
     developers: "",
+    startDate: "",
     methodology: "",
     location: "",
   });
@@ -112,6 +113,22 @@ const Form = () => {
               })
             }
           />
+
+          {/* Start Date */}
+          <TextField
+            name="startDate"
+            variant="outlined"
+            label="Start Date"
+            fullWidth
+            value={productData.startDate}
+            onChange={(e) =>
+              setProductData({
+                ...productData,
+                startDate: e.target.value,
+              })
+            }
+          />
+
           {/* Location */}
           <TextField
             name="location"
