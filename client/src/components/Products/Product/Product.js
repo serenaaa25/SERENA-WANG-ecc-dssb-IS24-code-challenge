@@ -24,7 +24,6 @@ const Product = ({ product }) => {
         image={
           "https://www.earlyyearsbc.ca/wp-content/themes/eypd/assets/images/clients/bc2.png"
         }
-        title={`Product Name: ${product.productName}`}
       />
       <div className={classes.overlay}>
         <Typography variant="h6">
@@ -36,7 +35,7 @@ const Product = ({ product }) => {
       </div>
       <div className={classes.overlay2}>
         <Button style={{ color: "white" }} size="small" onClick={() => {}}>
-          <MoreHorizIcon fontSize="medium" />
+          Edit <MoreHorizIcon fontSize="medium" />
         </Button>
       </div>
       <CardContent>
@@ -50,11 +49,23 @@ const Product = ({ product }) => {
             {product.developers.map((developers) => `#${developers} `)}
           </Typography>
         </div>
+        <div className={classes.details}>
+          <Typography variant="body2" component="p">
+            Scrum Master Name: <br /> {product.scrumMasterName}
+          </Typography>
+        </div>
+        <div className={classes.details}>
+          <Typography variant="body2" component="p">
+            Product Owner Name: <br /> {product.productOwnerName}
+          </Typography>
+        </div>
+        <div className={classes.details}>
+          <Typography variant="body2" component="p">
+            Methodology: <br /> {product.methodology}
+          </Typography>
+        </div>
         <Typography variant="body2" component="p">
-          Scrum Master Name: {product.scrumMasterName}
-        </Typography>
-        <Typography variant="body2" component="p">
-          Product Owner Name: {product.productOwnerName}
+          Location: {product.location}
         </Typography>
       </CardContent>
 
