@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  TextField,
-  Select,
-  Button,
-  Typography,
-  Paper,
-} from "@material-ui/core";
+import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import useStyles from "./styles";
 import { createProduct, updateProduct } from "../../actions/products";

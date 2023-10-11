@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   Container,
   AppBar,
-  Typography,
   TextField,
   Grow,
   Grid,
@@ -15,14 +14,7 @@ import { useDispatch } from "react-redux";
 import useStyles from "./styles";
 import { getProducts, getProductsBySearch } from "../../actions/products.js";
 import Pagination from "../Pagination/Pagination.js";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-  useHistory,
-  useLocation,
-} from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import ChipInput from "material-ui-chip-input";
 
@@ -35,8 +27,8 @@ const Home = () => {
   const [currentId, setCurrentId] = useState(null);
   const query = useQuery();
   const history = useHistory();
-  const page = query.get("page") || 1;
   const searchQuery = query.get("searchQuery");
+  console.log("searchQuery", searchQuery);
   const [search, setSearch] = useState("");
   const [developers, setDevelopers] = useState([]);
 

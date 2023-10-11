@@ -1,18 +1,8 @@
-import React, { useState, useEffect } from "react";
-import {
-  Container,
-  AppBar,
-  Typography,
-  Grow,
-  Grid,
-  Paper,
-} from "@material-ui/core";
-import Form from "./components/Form/Form.js";
-import Products from "./components/Products/Products.js";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { Container, AppBar, Typography } from "@material-ui/core";
+
 import useStyles from "./styles";
-import { getProducts } from "./actions/products.js";
-import Pagination from "./components/Pagination/Pagination.js";
+
 import {
   BrowserRouter as Router,
   Route,
