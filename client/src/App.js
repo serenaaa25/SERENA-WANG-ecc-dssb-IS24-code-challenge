@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
 import Form from "./components/Form/Form.js";
 import Products from "./components/Products/Products.js";
-import Product from "./components/Products/Product/Product.js";
-
+import { useDispatch } from "react-redux";
 import useStyles from "./styles";
+import { getProducts } from "./actions/products.js";
 
 const App = () => {
   const classes = useStyles();
+
+  const dispatch = useDispatch(); //hook
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
   return (
     <Container maxWidth="lg">
       <AppBar className={classes.appBar} position="static" color="inherit">
