@@ -7,8 +7,8 @@ import {
   Paper,
 } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
-import FileBase from "react-file-base64";
 import useStyles from "./styles";
+import { createProduct } from "../../actions/products";
 
 const Form = () => {
   const [productData, setProductData] = useState({
@@ -21,7 +21,12 @@ const Form = () => {
   });
 
   const classes = useStyles();
-  const handleSubmit = () => {};
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createProduct(productData));
+  };
   const clear = () => {};
 
   return (
