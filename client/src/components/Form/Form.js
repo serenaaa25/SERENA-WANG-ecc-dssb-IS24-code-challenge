@@ -112,7 +112,7 @@ const Form = ({ currentId, setCurrentId }) => {
             onChange={(e) =>
               setProductData({
                 ...productData,
-                developers: e.target.value,
+                developers: e.target.value.split(","),
               })
             }
           />

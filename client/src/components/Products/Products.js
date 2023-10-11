@@ -6,7 +6,7 @@ import useStyles from "./styles";
 
 const Products = ({ setCurrentId }) => {
   const products = useSelector((state) => state.products);
-  console.log(products);
+  // console.log(products);
   const classes = useStyles();
 
   return !products.length ? (

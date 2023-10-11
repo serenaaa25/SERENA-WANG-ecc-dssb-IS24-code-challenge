@@ -51,7 +51,7 @@ const Product = ({ product, setCurrentId }) => {
           <Typography variant="body2" component="h2">
             Developers: <br />
             {Array.isArray(product.developers)
-              ? product.developers.map((developer) => `${developer} `)
+              ? product.developers.map((developer) => `${developer}, `)
               : "No developers available"}
           </Typography>
         </div>

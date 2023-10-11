@@ -6,7 +6,19 @@ export const getProducts = () => async (dispatch) => {
     const { data } = await api.fetchProducts();
     dispatch({ type: "FETCH_ALL", payload: data });
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
+  }
+};
+
+export const getProductsBySearch = (searchQuery) => async (dispatch) => {
+  try {
+    const {
+      data: { data },
+    } = await api.fetchProductsBySearch(searchQuery);
+    dispatch({ type: "FETCH_BY_SEARCH", payload: { data } });
+    console.log("search data", data);
+  } catch (error) {
+    console.log(error);
   }
 };
 

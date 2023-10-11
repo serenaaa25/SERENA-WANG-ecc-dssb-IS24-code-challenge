@@ -12,6 +12,20 @@ export const getProducts = async (req, res) => {
   }
 };
 
+export const getProductsBySearch = async (req, res) => {
+  const { searchQuery, developers } = req.query;
+  try {
+    const productName = new RegExp(searchQuery, "i");
+    // rethink developers tag search 
+    const products = await ProductDetail.find({
+      $or: [{ productName }, { developers: { $in: developers.split("") } }],
+    });
+    res.json({ data: products });
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
 export const createProducts = async (req, res) => {
   //   res.send("New Product creation");
   const product = req.body;
