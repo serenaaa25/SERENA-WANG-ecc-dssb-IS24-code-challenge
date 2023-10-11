@@ -11,7 +11,7 @@ import {
 import DeleteIcon from "@material-ui/icons/Delete";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { useDispatch } from "react-redux";
-
+import { deleteProduct } from "../../../actions/products";
 import useStyles from "./styles";
 
 const Product = ({ product, setCurrentId }) => {
@@ -76,7 +76,11 @@ const Product = ({ product, setCurrentId }) => {
       </CardContent>
 
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" onClick={() => {}}>
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => dispatch(deleteProduct(product._id))}
+        >
           <DeleteIcon fontSize="small" /> Delete
         </Button>
       </CardActions>

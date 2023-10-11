@@ -50,8 +50,18 @@ export const updateProduct = async (req, res) => {
     _id: id,
   };
 
-
   await ProductDetail.findByIdAndUpdate(id, updatedProduct, { new: true });
 
   res.json(updatedProduct);
+};
+
+export const deleteProduct = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send(`No post with id: ${id}`);
+
+  await ProductDetail.findByIdAndRemove(id);
+
+  res.json({ message: "Product deleted successfully." });
 };

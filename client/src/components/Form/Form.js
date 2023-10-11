@@ -56,6 +56,7 @@ const Form = ({ currentId, setCurrentId }) => {
           {/* typefield for creating product form */}
           {/* Scrum Master Name */}
           <TextField
+            required
             name="scrumMasterName"
             variant="outlined"
             label="Scrum Master Name"
@@ -71,6 +72,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
           {/* Product Name */}
           <TextField
+            required
             name="productName"
             variant="outlined"
             label="Product Name"
@@ -85,6 +87,7 @@ const Form = ({ currentId, setCurrentId }) => {
           />
           {/* Product Owner Name */}
           <TextField
+            required
             name="productOwnerName"
             variant="outlined"
             label="Product Owner Name"
@@ -100,6 +103,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
           {/* Developers */}
           <TextField
+            required
             name="developers"
             variant="outlined"
             label="Developers"
@@ -114,6 +118,7 @@ const Form = ({ currentId, setCurrentId }) => {
           />
           {/* Methodology */}
           <TextField
+            required
             name="methodology"
             variant="outlined"
             label="Methodology"
@@ -129,6 +134,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
           {/* Start Date */}
           <TextField
+            required
             name="startDate"
             variant="outlined"
             label="Start Date"
@@ -144,6 +150,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
           {/* Location */}
           <TextField
+            required
             name="location"
             variant="outlined"
             label="Location"
