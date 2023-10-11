@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   TextField,
   Select,
@@ -8,9 +8,17 @@ import {
 } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import useStyles from "./styles";
-import { createProduct } from "../../actions/products";
+import { createProduct, updateProduct } from "../../actions/products";
 
-const Form = () => {
+const Form = ({ currentId, setCurrentId }) => {
+  const product = useSelector((state) =>
+    currentId ? state.products.find((p) => p._id === currentId) : null
+  );
+
+  useEffect(() => {
+    if (product) setProductData(product);
+  }, [product]);
+
   const [productData, setProductData] = useState({
     scrumMasterName: "",
     productName: "",
@@ -26,7 +34,12 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createProduct(productData));
+
+    if (currentId) {
+      dispatch(updateProduct(currentId, productData));
+    } else {
+      dispatch(createProduct(productData));
+    }
   };
   const clear = () => {};
 

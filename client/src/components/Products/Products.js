@@ -4,7 +4,7 @@ import Product from "./Product/Product";
 import { Grid, CircularProgress } from "@material-ui/core";
 import useStyles from "./styles";
 
-const Products = () => {
+const Products = ({ setCurrentId }) => {
   const products = useSelector((state) => state.products);
   console.log(products);
   const classes = useStyles();
@@ -20,7 +20,7 @@ const Products = () => {
     >
       {products.map((product) => (
         <Grid item key={product._id} xs={12} sm={6}>
-          <Product product={product} />
+          <Product product={product} setCurrentId={setCurrentId} />
         </Grid>
       ))}
     </Grid>

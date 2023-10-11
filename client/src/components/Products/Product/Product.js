@@ -14,7 +14,7 @@ import { useDispatch } from "react-redux";
 
 import useStyles from "./styles";
 
-const Product = ({ product }) => {
+const Product = ({ product, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   return (
@@ -34,7 +34,11 @@ const Product = ({ product }) => {
         <Typography variant="body2">{product.startDate}</Typography>
       </div>
       <div className={classes.overlay2}>
-        <Button style={{ color: "white" }} size="small" onClick={() => {}}>
+        <Button
+          style={{ color: "white" }}
+          size="small"
+          onClick={() => setCurrentId(product._id)}
+        >
           Edit <MoreHorizIcon fontSize="medium" />
         </Button>
       </div>
@@ -46,7 +50,9 @@ const Product = ({ product }) => {
         <div className={classes.details}>
           <Typography variant="body2" component="h2">
             Developers: <br />
-            {product.developers.map((developers) => `#${developers} `)}
+            {Array.isArray(product.developers)
+              ? product.developers.map((developer) => `${developer} `)
+              : "No developers available"}
           </Typography>
         </div>
         <div className={classes.details}>

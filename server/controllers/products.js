@@ -1,4 +1,5 @@
 import ProductDetail from "../models/productDetail.js";
+import mongoose from "mongoose";
 
 export const getProducts = async (req, res) => {
   //   res.send("working!!");
@@ -21,4 +22,36 @@ export const createProducts = async (req, res) => {
   } catch (error) {
     res.status(409).json({ message: error.message });
   }
+};
+
+export const updateProduct = async (req, res) => {
+  const { id } = req.params;
+  const {
+    productName,
+    productOwnerName,
+    developers,
+    scrumMasterName,
+    startDate,
+    methodology,
+    location,
+  } = req.body;
+
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send(`No product with that id: ${id}`);
+
+  const updatedProduct = {
+    productName,
+    productOwnerName,
+    developers,
+    scrumMasterName,
+    startDate,
+    methodology,
+    location,
+    _id: id,
+  };
+
+
+  await ProductDetail.findByIdAndUpdate(id, updatedProduct, { new: true });
+
+  res.json(updatedProduct);
 };
